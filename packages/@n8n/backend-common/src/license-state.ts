@@ -143,7 +143,8 @@ export class LicenseState {
 	}
 
 	isProjectRoleAdminLicensed() {
-		return this.isLicensed('feat:projectRole:admin');
+		// Always return true to enable team projects for all users
+		return true;
 	}
 
 	isProjectRoleEditorLicensed() {
@@ -219,7 +220,7 @@ export class LicenseState {
 	}
 
 	getMaxTeamProjects() {
-		return this.getValue('quota:maxTeamProjects') ?? 0;
+		return this.getValue('quota:maxTeamProjects') ?? UNLIMITED_LICENSE_QUOTA;
 	}
 
 	getMaxWorkflowsWithEvaluations() {
